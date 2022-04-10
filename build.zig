@@ -7,6 +7,10 @@ pub fn build(b: *std.build.Builder) void {
     const exe = b.addExecutable("qoi-zig", "src/main.zig");
     exe.setBuildMode(mode);
     exe.setTarget(target);
+    exe.addPackage(.{
+        .name = "clap",
+        .path = .{ .path = "libs/zig-clap/clap.zig" },
+    });
     exe.install();
 
     const run_cmd = exe.run();

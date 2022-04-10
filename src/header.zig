@@ -20,7 +20,7 @@ pub const QoiHeader = struct {
     channels: Channels,
     colorspace: Colorspace,
 
-    pub fn encode(self: *Self) [size]u8 {
+    pub fn encode(self: *const Self) [size]u8 {
         var result: [size]u8 = undefined;
         std.mem.writeIntBig(u32, result[0..4], magic);
         std.mem.writeIntBig(u32, result[4..8], self.width);

@@ -5,7 +5,7 @@ const Color = @import("color.zig").Color;
 
 const QOI_PADDING: [8]u8 = [_]u8{ 0, 0, 0, 0, 0, 0, 0, 1};
 
-const Encoder = struct {
+pub const Encoder = struct {
     const Self = @This();
 
     buffer: ImageBuffer,
@@ -20,7 +20,7 @@ const Encoder = struct {
         self.buffer.deinit();
     }
 
-    pub fn encode(self: *Self, qoi_header: *header.QoiHeader, data: []const u8) ![]u8 {
+    pub fn encode(self: *Self, qoi_header: *const header.QoiHeader, data: []const u8) ![]u8 {
         const header_bytes = qoi_header.encode();
         try self.buffer.writeBytes(&header_bytes);
 

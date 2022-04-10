@@ -27,7 +27,7 @@ fn unmapRange6(val: u32) i6 {
     return @intCast(i6, @as(i8, @truncate(u6, val)) - 32);
 }
 
-const Decoder = struct {
+pub const Decoder = struct {
     const Self = @This();
 
     buffer: ImageBuffer,
