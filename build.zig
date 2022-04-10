@@ -7,10 +7,6 @@ pub fn build(b: *std.build.Builder) void {
     const exe = b.addExecutable("qoi-zig", "src/main.zig");
     exe.setBuildMode(mode);
     exe.setTarget(target);
-    exe.addPackage(.{
-        .name = "header",
-        .path = .{ .path = "src/header.zig" },
-    });
     exe.install();
 
     const run_cmd = exe.run();

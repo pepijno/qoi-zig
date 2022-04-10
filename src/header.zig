@@ -13,7 +13,7 @@ pub const Channels = enum(u8) {
 pub const QoiHeader = struct {
     const Self = @This();
     const magic = 0x716F6966; // characters "qoif" in hex
-    const size = 14;
+    pub const size = 14;
 
     width: u32,
     height: u32,

@@ -31,4 +31,5 @@ test "" {
     _ = @import("image-buffer.zig");
     _ = @import("color.zig");
     _ = @import("encoder.zig");
+    _ = @import("decoder.zig");
 }

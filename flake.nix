@@ -2,7 +2,8 @@
   description = "QOI encoder & decoder in zig";
 
   inputs = {
-    utils.url = "github:numtide/flake-utils";
+    nixpkgs.url = "nixpkgs/nixos-unstable";
+    utils.url = github:numtide/flake-utils;
   };
 
   outputs = { self, nixpkgs, utils }:
@@ -10,7 +11,9 @@
       let
         pkgs = nixpkgs.legacyPackages."${system}";
 
-        buildInputs = with pkgs; [ zig ];
+        buildInputs = with pkgs; [
+          zig
+        ];
       in
       rec {
         # `nix build`
