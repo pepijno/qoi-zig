@@ -11,6 +11,10 @@ pub fn build(b: *std.build.Builder) void {
         .name = "clap",
         .path = .{ .path = "libs/zig-clap/clap.zig" },
     });
+    exe.addPackage(.{
+        .name = "zigimg",
+        .path = .{ .path = "libs/zigimg/zigimg.zig" },
+    });
     exe.install();
 
     const run_cmd = exe.run();
